@@ -1,0 +1,22 @@
+{
+  "name": "map-tiles",
+  "version": "0.1.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "dependencies": {
+    "async-lru": "0.1.0",
+    "async": "0.2.6",
+    "underscore": "1.4.4"
+  },
+  "devDependencies": {
+    "mocha": "1.8.1",
+    "should": "1.2.1",
+    "wrench": "1.4.4"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha -t 60000 -R spec ./tests"
+  },
+  "repository": "",
+  "author": "Mark Dawson",
+  "license": "MIT"
+}
