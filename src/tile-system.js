@@ -61,7 +61,7 @@ TileSystem.pixelXYToLatLong = function(pixelX, pixelY, levelOfDetail) {
     var y = 0.5 - (TileSystem.clip(pixelY, 0, mapSize - 1) / mapSize);
     
     return {
-        latitude: 90 - 360 * Math.Atan(Math.Exp(-y * 2 * Math.PI)) / Math.PI,
+        latitude: 90 - 360 * Math.atan(Math.exp(-y * 2 * Math.PI)) / Math.PI,
         longitude: 360 * x
     };
 };
@@ -85,6 +85,17 @@ TileSystem.latLongToQuadKey = function(latitude, longitude, levelOfDetail) {
     var pixelXY = TileSystem.latLongToPixelXY(latitude, longitude, levelOfDetail);
     var tileXY = TileSystem.pixelXYToTileXY(pixelXY.x, pixelXY.y);
     return TileSystem.tileXYToQuadKey(tileXY.x, tileXY.y, levelOfDetail);
+};
+
+TileSystem.quadKeyToLatLong = function(quadkey) {
+    var tileXY = TileSystem.quadKeyToTileXY(quadkey),
+        pixelXY = TileSystem.tileXYToPixelXY(tileXY.x, tileXY.y),
+        latLong = TileSystem.pixelXYToLatLong(pixelXY.x, pixelXY.y, tileXY.levelOfDetail);
+    return {
+        latitude: latLong.latitude,
+        longitude: latLong.longitude,
+        levelOfDetail: tileXY.levelOfDetail
+    };
 };
 
 TileSystem.tileXYToQuadKey = function(tileX, tileY, levelOfDetail) {

@@ -1,3 +1,4 @@
+return;
 var Async = require('async'),
     Fs = require('fs'),
     LRU = require('async-lru').LRU,

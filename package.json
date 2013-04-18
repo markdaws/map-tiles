@@ -4,7 +4,6 @@
   "description": "ERROR: No README.md file found!",
   "main": "index.js",
   "dependencies": {
-    "async-lru": "0.1.0",
     "async": "0.2.6",
     "underscore": "1.4.4"
   },
